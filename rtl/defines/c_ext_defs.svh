@@ -2,15 +2,13 @@
 // Licensed under the Apache License, Version 2.0, see LICENSE file for details.
 // SPDX-License-Identifier: Apache-2.0
 //
-// Description: Definitions file for c-extension signals.
+// Description:  
 //
-// Author: Ateeb Tahir, UET Lahore
+// Author: Ateeb Tahir, DDRC, UET Lahore
 // Date: 21.7.2023
-
 
 `ifndef C_EXT_DEFS
 `define C_EXT_DEFS
-
 `include "pcore_config_defs.svh"
 
 // Bus interface from IF to cext
@@ -48,6 +46,8 @@ typedef enum logic [6:0] {
 */
 
 
-
-
-
+/* Additions and modifications required here: 
+    Place all of the remaining definitions in the c decode module 
+    and all other fixed or constant values here.
+    //Task for for Abdul Waheed
+*/

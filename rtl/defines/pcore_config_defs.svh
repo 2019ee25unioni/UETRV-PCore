@@ -41,12 +41,12 @@
 
 `ifndef COMPLIANCE
 `ifdef LINUX_BOOT
-`define PC_RESET                     32'h00001000  // Booting from boot memory to pass the device tree pointer                    
+`define PC_RESET                     32'h00001000 // Booting from boot memory to pass the device tree pointer                    
 `else
-`define PC_RESET                     32'h80000000  // Booting from data memory
+`define PC_RESET                      32'h80000000 // Booting from data memory
 `endif
 `else 
-`define PC_RESET                     32'h80000000
+`define PC_RESET                    32'h00001000
 `endif
 
 // Memory related parameters

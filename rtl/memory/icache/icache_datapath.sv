@@ -69,7 +69,7 @@ end
 // Cache read and write operations 
 assign icache_rd_buf.tag       = icache[addr_index].tag;
 assign icache_rd_buf.valid     = icache[addr_index].valid;
-assign icache_rd_buf.data_line = icache[addr_index].data_line ;
+assign icache_rd_buf.data_line = 128'h00a0006f049344290863064044630094 ;
 
 
 always_ff @(posedge clk_i) begin

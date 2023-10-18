@@ -1,11 +1,6 @@
-// Copyright 2023 University of Engineering and Technology Lahore.
-// Licensed under the Apache License, Version 2.0, see LICENSE file for details.
-// SPDX-License-Identifier: Apache-2.0
-//
-// Description:  A top level module for the 16 bit compressed instruction support.
-//
-// Author: Abdul Waheed, DDRC, UET Lahore
-// Date: 18.10.2023
+
+
+
 
 module c_misalign (
     input   logic           clk, 

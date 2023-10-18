@@ -197,7 +197,7 @@ if2mmu.i_vaddr=pc_next;
     else if (pc_ff[1]) if2mmu.i_vaddr= (pc_next-32'h2);
     else if2mmu.i_vaddr=pc_next;
 end
-
+//assign if2mmu.i_vaddr = (if_misallign & ~fwd2if.csr_new_pc_req & ~fwd2if.wfi_req  & ~fwd2if.exe_new_pc_req)? ((pc_ff[1]): (cext2if_i.pc_aligned-32'h2): cext2if_i.pc_aligned): pc_next ;
 assign if2mmu.i_req   = `IMEM_INST_REQ; 
 assign if2mmu.i_kill  = kill_req;
 

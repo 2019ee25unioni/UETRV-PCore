@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0, see LICENSE file for details.
 // SPDX-License-Identifier: Apache-2.0
 //
-// Description:  A top level module for the 16 bit compressed instruction support.
+// Description:  A top level module for the 16 bit compressed extension.
 //
 // Author: Ateeb Tahir, DDRC, UET Lahore
 // Date: 21.7.2023
@@ -21,16 +21,15 @@ module c_top(
     input   logic           br_taken_i,
 
     // IF <---> C Extension
-    input  type_if2cext_s   if2cext_i,
-    output type_cext2if_s   cext2if_o
+    input  type_if2cext_s                           if2cext_i,
+    output type_cext2if_s                           cext2if_o
+
 );
+    logic                   pc_misalign;
+    logic           [31:0]  instruction;
 
-logic                   pc_misalign;
-logic           [31:0]  instruction;
 
-    
-// Demisalignment module to handle pc misalignment,
-// due to 16 bit half-word aligned compressed instructions.
+
 c_misalign misalign (
     //inputs
     .clk                    (clk), 
@@ -48,8 +47,6 @@ c_misalign misalign (
     .inst_out               (instruction)
 );
 
-// Decoder for the c-extention that will decode 16-bit instructions
-// into their respective 32-bit instructions towards decode module.
 c_decode decode (
     //inputs
     .inst                   (instruction),

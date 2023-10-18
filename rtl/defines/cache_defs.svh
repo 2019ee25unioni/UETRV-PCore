@@ -62,7 +62,7 @@ typedef struct packed {
 typedef struct packed {
     logic [ICACHE_TAG_BITS-1:0]      tag;
     logic                            valid;
-    logic [ICACHE_LINE_WIDTH-1:0]    data_line;
+    reg [ICACHE_LINE_WIDTH-1:0]    data_line;
 } type_icache_line_s;
 
 

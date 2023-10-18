@@ -1,5 +1,8 @@
 `timescale 1 ns / 100 ps
-`include "pcore_interface_defs.svh"
+// `ifndef pcore_interface_defs
+// `include "../rtl/defines/pcore_interface_defs.svh"
+// `else 
+//`include "pcore_interface_defs.svh"
 
 module pcore_tb(input bit clk, input bit reset);
 
@@ -34,7 +37,7 @@ initial begin
   // Load hex instructions
   if($value$plusargs("imem=%s",firmware)) begin
     $display("Loading Instruction Memory from %0s", firmware);
-    $readmemh(firmware, dut.mem_top_module.main_mem_module.dualport_memory);
+    $readmemh(firmware, dut.mem_top_module.bmem_interface_module.bmem_module.bmem);
   end
 
   if($value$plusargs("max_cycles=%d",max_cycles)) begin

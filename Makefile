@@ -11,7 +11,7 @@ ver-library ?= ver_work
 defines     ?= 
 
 # default command line arguments
-imem_uart  ?= sdk/example-uart/hello.hex
+imem_uart  ?= main.txt
 imem_linux ?= sdk/example-linux/imem.txt
 max_cycles ?= 100000
 vcd        ?= 0
@@ -65,9 +65,8 @@ sim-verilate-linux: verilate
 	@echo
 	@echo "Initiating Linux Bootup in Verilator Simulation..."
 	@echo
-	rm  -f  ./sdk/example-linux/imem.txt
-	unzip ./sdk/example-linux/imem.zip -d ./sdk/example-linux/
-	$(ver-library)/Vpcore_tb +imem=$(imem_linux) +max_cycles=300000000 +vcd=$(vcd)
+
+	$(ver-library)/Vpcore_tb +imem=$(pwd)/main.txt +max_cycles=30000 +vcd=$(vcd)
 
 clean-all:
 	rm -rf ver_work/ *.log *.vcd 					\

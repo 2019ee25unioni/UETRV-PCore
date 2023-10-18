@@ -1,0 +1,34 @@
+
+build/main.elf:     file format elf32-littleriscv
+
+Contents of section .text:
+ 0000 6f00a000 29449304 40066308 94006344  o...)D..@.c...cD
+ 0010 9400058c ddbf818c cdbf2324 80000325  ..........#$...%
+ 0020 800001a0                             ....            
+Contents of section .riscv.attributes:
+ 0000 411e0000 00726973 63760001 14000000  A....riscv......
+ 0010 05727633 32693270 315f6332 703000    .rv32i2p1_c2p0. 
+
+Disassembly of section .text:
+
+00000000 <reset_handler>:
+   0:	00a0006f          	j	a <gcd>
+   4:	4429                	li	s0,10
+   6:	06400493          	li	s1,100
+
+0000000a <gcd>:
+   a:	00940863          	beq	s0,s1,1a <stop>
+   e:	00944463          	blt	s0,s1,16 <less>
+  12:	8c05                	sub	s0,s0,s1
+  14:	bfdd                	j	a <gcd>
+
+00000016 <less>:
+  16:	8c81                	sub	s1,s1,s0
+  18:	bfcd                	j	a <gcd>
+
+0000001a <stop>:
+  1a:	00802423          	sw	s0,8(zero) # 8 <reset_handler+0x8>
+  1e:	00802503          	lw	a0,8(zero) # 8 <reset_handler+0x8>
+
+00000022 <end>:
+  22:	a001                	j	22 <end>

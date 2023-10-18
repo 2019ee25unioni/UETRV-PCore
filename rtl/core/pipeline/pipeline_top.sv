@@ -8,7 +8,6 @@
 // Date: 11.8.2022
 
 
-
 `ifndef VERILATOR
 `include "../../defines/mmu_defs.svh"
 `include "../../defines/m_ext_defs.svh"
@@ -179,7 +178,7 @@ fetch fetch_module (
 c_top c_top (
     .clk                        (clk),
     .reset                      (rst_n),
-    .br_taken_i                 (fwd2if.exe_new_pc_req | fwd2if.csr_new_pc_req | csr2if_fb.icache_flush),
+    .br_taken_i                 (fwd2if.exe_new_pc_req | fwd2if.csr_new_pc_req |csr2if_fb.icache_flush),
 
     .if2cext_i                  (if2cext),
     .cext2if_o                  (cext2if)
@@ -579,3 +578,4 @@ assign lsu2mmu_o    = lsu2mmu;
 assign if2icache_o  = if2icache;
 
 endmodule : pipeline_top
+
